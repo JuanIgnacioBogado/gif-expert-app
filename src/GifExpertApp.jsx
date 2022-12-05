@@ -21,6 +21,3 @@ export const GifExpertApp = () => {
     </>
   );
 };
-
-// api.giphy.com/v1/gifs/search
-// apikey = qMUU5g4MSg4kxEjTvdK3qM6zNYC3clH5

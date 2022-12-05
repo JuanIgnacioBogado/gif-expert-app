@@ -1,16 +1,18 @@
+import PropTypes from 'prop-types';
+
 export const AddCategory = ({ onAddCategory }) => {
   const handleSubmit = event => {
     event.preventDefault();
 
-    const { value } = event.target.categoryInput;
-    if (!value.trim()) return;
+    const value = event.target.categoryInput?.value;
+    if (!value?.trim()) return;
 
     onAddCategory(value.trim());
-    event.target.reset();
+    event.target.categoryInput.value = '';
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} aria-label="form">
       <input
         autoFocus
         name="categoryInput"
@@ -19,4 +21,8 @@ export const AddCategory = ({ onAddCategory }) => {
       />
     </form>
   );
+};
+
+AddCategory.propTypes = {
+  onAddCategory: PropTypes.func.isRequired
 };
